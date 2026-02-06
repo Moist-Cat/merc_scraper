@@ -316,12 +316,12 @@ class MercadoPublicoScraper:
                 if match:
                     links.append(match.group(1))
 
-        for item in soup.findAll(class_="licitacion-publicada"):
+        for item in soup.find_all(class_="licitacion-publicada"):
             identifier = (
                 item.find(class_="id-licitacion").find(class_="clearfix").text.strip()
             )
             name = item.find("h2").text.strip()
-            highlight = item.findAll(class_="highlight-text text-weight-light")
+            highlight = item.find_all(class_="highlight-text text-weight-light")
             state = 0
             patt = "[0-9]+/[0-9]+/[0-9]+"
             pub_date = None
@@ -388,7 +388,7 @@ class MercadoPublicoScraper:
         match = None
 
         input_imgs = []
-        for row in form.findAll("tr"):
+        for row in form.find_all("tr"):
             columns = row.find_all("td")
             if len(columns) < 7:
                 continue
