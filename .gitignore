@@ -1,0 +1,9 @@
+*~
+*.swp
+*.swo
+*.json
+*.csv
+
+# cache
+cache
+**/__pycache__/**
